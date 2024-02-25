@@ -7,6 +7,11 @@
 // #include "SignalHandler.h"
 // #include "UserInterface.h"
 
+/**
+ * @class Shell
+ * @brief Creates new shell and acts as orchestrator with other classes 
+ *
+ */
 class Shell{
 private:
     // Objects
@@ -18,9 +23,18 @@ private:
 
 public: 
     // Constructor 
+     /**  
+     * @brief Default constructor for Shell class.
+     * 
+     * @note This constructor takes no input parameters.
+     */
     Shell();
 
-    // Main loop for shell 
+    /** 
+     * @brief starts main loop for shell. 
+     * 
+     * @note This method takes no input parameters. 
+     */
     void run();
 
 };
