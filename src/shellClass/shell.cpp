@@ -1,6 +1,7 @@
 #include "shell.hpp"
 #include "../utilClass/util.hpp"
 #include "../shellExceptionClass/shellException.hpp"
+#include <iostream>
 
 using namespace std;
 
@@ -20,6 +21,8 @@ void Shell:: is_valid_input(int argumentCount, char* argumentValue[]){
 
 
 void Shell:: run(){
+    // Print prompt 
+    shellUserInterface.printPrompt();
 
 }
 

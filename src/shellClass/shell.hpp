@@ -2,6 +2,7 @@
 #define SHELL_HPP
 
 #include "../utilClass/util.hpp"
+#include "../userInterfaceClass/userInterface.hpp"
 // #include "CommandParser.h"
 // #include "CommandExecutor.h"
 // #include "ProcessManager.h"
@@ -20,7 +21,7 @@ private:
     // CommandExecutor CommandExecutor; 
     // ProcessManager ProcessManager;
     // SignalHandler SignalHandler; 
-    // UserInterface UserInterface; 
+    UserInterface shellUserInterface; 
     Util shellUtilityObject;
 
 public: 
@@ -40,7 +41,6 @@ public:
      * @param arguementCount (int) Total count of arguments passed to program by user.
      * @param argumentValue (char * []) Array of values passed to program by user.
      * 
-     * @return (bool) Bool value indicating if input is valid or not.
      */
     void is_valid_input(int argumentCount, char* argumentValue[]);
 

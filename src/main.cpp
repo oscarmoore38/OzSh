@@ -10,6 +10,7 @@ int main(int argc, char* argv[]){
     programShell.is_valid_input(argc, argv);
 
     // run shell 
+    programShell.run();
 
     return 0; 
 }
