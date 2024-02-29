@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef SHELL_HPP
+#define SHELL_HPP
 
 // #include "CommandParser.h"
 // #include "CommandExecutor.h"

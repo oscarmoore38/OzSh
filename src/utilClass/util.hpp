@@ -1,6 +1,7 @@
-#ifndef UTIL_H
-#define UTIL_H
+#ifndef UTIL_HPP
+#define UTIL_HPP
 
+#include <iostream>
 
 /**
  * @class Util
@@ -28,7 +29,7 @@ public:
      * 
      * @return (bool) Bool value indicating if input is valid or not.
      */
-    bool is_valid_input(int argumentCount, char* argumentValue);
+    bool is_valid_input(int argumentCount, char* argumentValue[]);
     
 };
 

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "shellClass/shell.h"
-#include "utilClass/util.h"
+#include "shellClass/shell.hpp"
+#include "utilClass/util.hpp"
 
 
 int main(int argc, char* argv[]){
