@@ -1,26 +1,15 @@
 #include <iostream>
 #include "shellClass/shell.hpp"
-#include "utilClass/util.hpp"
 
+using namespace std;
 
 int main(int argc, char* argv[]){
-    // Validate inputs
-    Util shellUtil; 
+    Shell programShell; 
 
-    bool isValidInput = shellUtil.is_valid_input(argc, argv);
+    // Validate inputs before creating shell 
+    programShell.is_valid_input(argc, argv);
 
-    if (isValidInput) {
-        std::cout << "Valid input - creating new shell" << std::endl;
-
-    } else {
-        std::cout << "invalid input - exiting" << std::endl;
-    }
-
-
-    // Create new shell
-    // Shell newShell; 
-
-    // newShell.run(); 
+    // run shell 
 
     return 0; 
 }
