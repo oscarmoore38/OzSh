@@ -1,6 +1,7 @@
 #ifndef UTIL_HPP
 #define UTIL_HPP
 
+#include "util.hpp"
 #include <iostream>
 
 /**
@@ -27,9 +28,8 @@ public:
      * @param arguementCount (int) Total count of arguments passed to program by user.
      * @param argumentValue (char * []) Array of values passed to program by user.
      * 
-     * @return (bool) Bool value indicating if input is valid or not.
      */
-    bool is_valid_input(int argumentCount, char* argumentValue[]);
+    void is_valid_input(int argumentCount, char* argumentValue[]);
     
 };
 

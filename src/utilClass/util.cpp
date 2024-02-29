@@ -1,5 +1,6 @@
 #include "util.hpp"
 #include <iostream>
+#include "../shellExceptionClass/shellException.hpp"
 
 
 // Constructor 
@@ -8,16 +9,11 @@ Util:: Util(){
 }
 
 // Checks inputs
-bool Util:: is_valid_input(int argumentCount, char* argumentValue[]){
+void Util:: is_valid_input(int argumentCount, char* argumentValue[]){
     // Argument count check
     if (argumentCount > 2){
-        std::cerr << "Too many arguments." << std::endl;
-        return false;
+        throw ShellException("Error: Too many arguments provided");
     } else if (argumentCount < 2){
-        std::cerr << "Too few arguments." << std::endl;
-        return false;
+        throw ShellException("Error: No arguments provided");
     }
-
-    return true;
-    
 }
