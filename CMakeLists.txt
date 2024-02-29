@@ -26,4 +26,4 @@ set(Sources
 
 add_library(${This} STATIC ${Sources} ${Headers})
 
-add_subdirectory(test)
+add_subdirectory(IntegrationTests)
