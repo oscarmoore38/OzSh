@@ -4,3 +4,6 @@ bin/
 
 # Ignore IDE and editor-specific files 
 .vscode/
+
+# Googletest
+googletest/
