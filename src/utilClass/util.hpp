@@ -3,6 +3,11 @@
 
 #include "util.hpp"
 #include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
 
 /**
  * @class Util
@@ -30,6 +35,15 @@ public:
      * 
      */
     void is_valid_input(int argumentCount, char* argumentValue[]);
+
+    /** 
+     * @brief Reads from specfied file. If no file is specified, it will read from std::cin
+     *
+     * @param fileInput - pointer ot a file. Default is nullptr
+     * 
+     * @return string containing contents of file. 
+     */
+    std::string read_file(istream& stream);
     
 };
 
