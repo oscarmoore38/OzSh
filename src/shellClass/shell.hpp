@@ -3,11 +3,13 @@
 
 #include "../utilClass/util.hpp"
 #include "../userInterfaceClass/userInterface.hpp"
+#include <string>
 // #include "CommandParser.h"
 // #include "CommandExecutor.h"
 // #include "ProcessManager.h"
 // #include "SignalHandler.h"
 
+using namespace std;
 
 /**
  * @class Shell
@@ -23,6 +25,9 @@ private:
     // SignalHandler SignalHandler; 
     UserInterface shellUserInterface; 
     Util shellUtilityObject;
+
+    // Arrtibutes 
+    string userInput;
 
 public: 
     // Constructor 
@@ -49,7 +54,7 @@ public:
      * 
      * @note This method takes no input parameters. 
      */
-    void run();
+    void run(int argumentCount, char* argumentValue[]);
  
 
 };

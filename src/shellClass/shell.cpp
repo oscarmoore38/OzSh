@@ -2,6 +2,7 @@
 #include "../utilClass/util.hpp"
 #include "../shellExceptionClass/shellException.hpp"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -20,9 +21,26 @@ void Shell:: is_valid_input(int argumentCount, char* argumentValue[]){
 }
 
 
-void Shell:: run(){
-    // Print prompt 
-    shellUserInterface.printPrompt();
+void Shell:: run(int argumentCount, char* argumentValue[]){
+    // Check valid args
+    is_valid_input(argumentCount, argumentValue);
 
+    for (;;){
+        // Print prompt 
+        shellUserInterface.printPrompt();
+
+        // Get user input - read from provided file or std::cin 
+        if(argumentCount == 2){
+            ifstream file(argumentValue[1]);
+            userInput = shellUtilityObject.read_file(file);
+        } else {
+            userInput = shellUtilityObject.read_file(cin);
+        
+        }
+
+        cout << "You entered: " << userInput << endl; 
+    }
+    
+    return;
 }
 
