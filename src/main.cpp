@@ -6,11 +6,8 @@ using namespace std;
 int main(int argc, char* argv[]){
     Shell programShell; 
 
-    // Validate inputs before creating shell 
-    programShell.is_valid_input(argc, argv);
-
     // run shell 
-    programShell.run();
+    programShell.run(argc, argv);
 
     return 0; 
 }
