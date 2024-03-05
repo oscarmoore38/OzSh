@@ -15,7 +15,8 @@ public:
     // class method 
     // Constructor 
      /**  
-     * @brief Default constructor for Shell class.
+     * @brief Default constructor for Shell class. Will call setter, 
+     * setPromptEnv if private attribute envVarPS1 is not set. 
      * 
      * @note This constructor takes no input parameters.
      */
@@ -28,6 +29,12 @@ public:
      */
 
     void printPrompt();
+
+    /** 
+     * @brief Setter for private attribute ennVarPS1 
+     *
+     * @note This method takes no input parameters
+     */
 
     void setPromptEnv();
 
