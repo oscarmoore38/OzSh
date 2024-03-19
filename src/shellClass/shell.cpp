@@ -38,6 +38,7 @@ vector<string> Shell:: parseInput(const string& UserInputString) {
     return words;
 
 }
+
 void Shell:: run(int argumentCount, char* argumentValue[]){
     // Check valid args
     try {
@@ -53,7 +54,7 @@ void Shell:: run(int argumentCount, char* argumentValue[]){
 
         // Read and parse user input. 
         parsedInput = parseInput(read_line(cin));
-        
+
         
     }
     return;

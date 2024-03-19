@@ -14,33 +14,22 @@ using namespace std;
 
 /**
  * @class Shell
- * @brief Creates new shell and acts as orchestrator with other classes 
+ * @brief Acts as orchestrator with other classes for shell program
  *
  */
 class Shell{
 private:
     // Objects
-    // commandEx
     // CommandExecutor CommandExecutor; 
     // ProcessManager ProcessManager;
     // SignalHandler SignalHandler; 
-    UserInterface shellUserInterface; 
-    Util shellUtilityObject;
 
     // Arrtibutes 
     vector<string> parsedInput;
+    UserInterface shellUserInterface; 
+    Util shellUtilityObject;
 
-public: 
-    // Constructor 
-     /**  
-     * @brief Default constructor for Shell class.
-     * 
-     * @note This constructor takes no input parameters.
-     */
-    Shell();
-
-    // Class Methods 
-    
+    // Private class methods 
     /** 
      * @brief Checks if a user input is valid. Will throw execption if not. 
      *
@@ -49,14 +38,6 @@ public:
      * 
      */
     void is_valid_input(int argumentCount, char* argumentValue[]);
-
-
-    /** 
-     * @brief starts main loop for shell. 
-     * 
-     * @note This method takes no input parameters. 
-     */
-    void run(int argumentCount, char* argumentValue[]);
 
     /** 
      * @brief Reads a line of input from the console.  
@@ -75,7 +56,25 @@ public:
      * @return vector<std::string>
      */
     vector<string> parseInput(const string& UserInputString);
-    
+
+public: 
+    // Constructor 
+     /**  
+     * @brief Default constructor for Shell class.
+     * 
+     * @note This constructor takes no input parameters.
+     */
+    Shell();
+
+    // Class Methods 
+
+    /** 
+     * @brief starts main loop for shell. 
+     * 
+     * @note This method takes no input parameters. 
+     */
+    void run(int argumentCount, char* argumentValue[]);
+
 
 };
 
