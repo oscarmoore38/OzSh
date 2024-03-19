@@ -16,12 +16,14 @@ add_subdirectory(googletest)
 set(Headers
     src/utilClass/util.hpp
     src/shellClass/shell.hpp
+    src/CommandExecutorClass/commandExecutor.hpp
 )
 
 set(Sources
     src/main.cpp
     src/utilClass/util.cpp
     src/shellClass/shell.cpp
+    src/CommandExecutorClass/commandExecutor.cpp
 )
 
 add_library(${This} STATIC ${Sources} ${Headers})
