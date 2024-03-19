@@ -4,6 +4,7 @@
 #include "../utilClass/util.hpp"
 #include "../userInterfaceClass/userInterface.hpp"
 #include <string>
+#include <vector>
 // #include "CommandParser.h"
 // #include "CommandExecutor.h"
 // #include "ProcessManager.h"
@@ -19,7 +20,7 @@ using namespace std;
 class Shell{
 private:
     // Objects
-    // CommandParser CommandParser;
+    // commandEx
     // CommandExecutor CommandExecutor; 
     // ProcessManager ProcessManager;
     // SignalHandler SignalHandler; 
@@ -27,7 +28,7 @@ private:
     Util shellUtilityObject;
 
     // Arrtibutes 
-    string userInput;
+    vector<string> parsedInput;
 
 public: 
     // Constructor 
@@ -49,13 +50,31 @@ public:
      */
     void is_valid_input(int argumentCount, char* argumentValue[]);
 
+
     /** 
      * @brief starts main loop for shell. 
      * 
      * @note This method takes no input parameters. 
      */
     void run(int argumentCount, char* argumentValue[]);
- 
+
+    /** 
+     * @brief Reads a line of input from the console.  
+     *
+     * @param stream stream object of type istream. 
+     * 
+     * @return string containing line from stream
+     */
+    string read_line(istream& stream);
+
+     /** 
+     * @brief Parses string into a vector of strings.  
+     *
+     * @param string input. 
+     * 
+     * @return vector<std::string>
+     */
+    vector<string> parseInput(const string& UserInputString);
 
 };
 

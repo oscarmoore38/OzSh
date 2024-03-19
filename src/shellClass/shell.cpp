@@ -3,44 +3,58 @@
 #include "../shellExceptionClass/shellException.hpp"
 #include <iostream>
 #include <string>
+#include <vector>
+#include <sstream>
+
 
 using namespace std;
 
 // constructor definiton 
-Shell:: Shell(){
-
-}
+Shell:: Shell(){}
 
 void Shell:: is_valid_input(int argumentCount, char* argumentValue[]){
+    if (argumentCount > 1){
+        throw ShellException("Error: Too many arguments provided");
+    }    
+}
+
+
+string Shell:: read_line(istream& stream){
+    std::string line;
+    std::getline(stream, line);
+    return line;
+}
+
+
+vector<string> Shell:: parseInput(const string& UserInputString) {
+    vector<string> words;
+    istringstream iss(UserInputString);
+    string word;
+
+    while (iss >> word) {
+        words.push_back(word);
+    }
+
+    return words;
+
+}
+void Shell:: run(int argumentCount, char* argumentValue[]){
+    // Check valid args
     try {
-        shellUtilityObject.is_valid_input(argumentCount, argumentValue);
+        is_valid_input(argumentCount, argumentValue);
     } catch (const ShellException& e) {
         cerr << e.what() << endl;
         exit(1);
     }
-}
-
-
-void Shell:: run(int argumentCount, char* argumentValue[]){
-    // Check valid args
-    is_valid_input(argumentCount, argumentValue);
 
     for (;;){
-        // Print prompt 
+        // Prompt and collect input. 
         shellUserInterface.printPrompt();
 
-        // Get user input - read from provided file or std::cin 
-        if(argumentCount == 2){
-            ifstream file(argumentValue[1]);
-            userInput = shellUtilityObject.read_file(file);
-        } else {
-            userInput = shellUtilityObject.read_file(cin);
+        // Read and parse user input. 
+        parsedInput = parseInput(read_line(cin));
         
-        }
-
-        cout << "You entered: " << userInput << endl; 
     }
-    
     return;
 }
 
