@@ -26,24 +26,27 @@ public:
      */
     Util();
     
-    // methods 
-    /** 
-     * @brief if a users input is valid.
-     *
-     * @param arguementCount (int) Total count of arguments passed to program by user.
-     * @param argumentValue (char * []) Array of values passed to program by user.
-     * 
-     */
-    void is_valid_input(int argumentCount, char* argumentValue[]);
 
     /** 
-     * @brief Reads from specfied file. If no file is specified, it will read from std::cin
+     * @brief Open the specfied file. Will throw shellException if unable
      *
-     * @param fileInput - pointer ot a file. Default is nullptr
+     * @param fileInput - name of file (std::string)
      * 
-     * @return string containing contents of file. 
-     */
-    std::string read_file(istream& stream);
+     * @return File object of type std::ifstream  
+     */ 
+    ifstream open_file(const string& filename); 
+
+    /** 
+     * @brief Closes the specfied file. Will throw shellException if unable
+     *
+     * @param fileInput - name of file (std::string)
+     * 
+     * @note function does not return anything. 
+     */ 
+    void close_file(const string& filename); 
+
+
+
     
 };
 

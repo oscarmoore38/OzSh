@@ -3,26 +3,21 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <unistd.h> 
+
 
 using namespace std;
 
 // Constructor 
-Util:: Util(){
+Util:: Util(){}
 
+ifstream Util:: open_file(const string& filename){
+    std::ifstream file(filename);
+    if (!file.is_open()) { 
+        throw ShellException("Error: Unable to open file");
+    }
+    
+    return file;
 }
 
-// Checks inputs
-void Util:: is_valid_input(int argumentCount, char* argumentValue[]){
-    // Argument count check
-    if (argumentCount > 2){
-        throw ShellException("Error: Too many arguments provided");
-    } 
-}
 
-string Util:: read_file(istream& stream){
-    string content; 
-
-    getline(stream, content);
-
-    return content;
-}
