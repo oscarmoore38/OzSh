@@ -1,6 +1,7 @@
 #include "shell.hpp"
 #include "../utilClass/util.hpp"
 #include "../shellExceptionClass/shellException.hpp"
+#include "../CommandExecutorClass/commandExecutor.hpp/"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -55,6 +56,18 @@ void Shell:: run(int argumentCount, char* argumentValue[]){
         // Read and parse user input. 
         parsedInput = parse_input(read_line(cin));
 
+        // Try to execute command 
+        CommandExecutor shellExecutor = CommandExecutor(parsedInput);
+
+        try
+        {
+            shellExecutor.execute_command();
+        }
+        catch(const ShellException& e)
+        {
+            cerr << e.what() << endl;
+            exit(1);
+        }
         
     }
     return;
