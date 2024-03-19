@@ -34,7 +34,7 @@ private:
     /** 
      * @brief Checks if a user input is valid. Will throw execption if not. 
      *
-     * @param arguementCount (int) Total count of arguments passed to program by user.
+     * @param argumentCount (int) Total count of arguments passed to program by user.
      * @param argumentValue (char * []) Array of values passed to program by user.
      * 
      */
