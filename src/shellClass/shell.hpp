@@ -55,7 +55,7 @@ private:
      * 
      * @return vector<std::string>
      */
-    vector<string> parseInput(const string& UserInputString);
+    vector<string> parse_input(const string& UserInputString);
 
 public: 
     // Constructor 

@@ -26,7 +26,7 @@ string Shell:: read_line(istream& stream){
 }
 
 
-vector<string> Shell:: parseInput(const string& UserInputString) {
+vector<string> Shell:: parse_input(const string& UserInputString) {
     vector<string> words;
     istringstream iss(UserInputString);
     string word;
@@ -53,7 +53,7 @@ void Shell:: run(int argumentCount, char* argumentValue[]){
         shellUserInterface.printPrompt();
 
         // Read and parse user input. 
-        parsedInput = parseInput(read_line(cin));
+        parsedInput = parse_input(read_line(cin));
 
         
     }
