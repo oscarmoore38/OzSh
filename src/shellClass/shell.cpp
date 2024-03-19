@@ -54,6 +54,7 @@ void Shell:: run(int argumentCount, char* argumentValue[]){
         // Read and parse user input. 
         parsedInput = parseInput(read_line(cin));
         
+        
     }
     return;
 }
