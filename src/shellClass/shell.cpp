@@ -57,11 +57,11 @@ void Shell:: run(int argumentCount, char* argumentValue[]){
         parsedInput = parse_input(read_line(cin));
 
         // Try to execute command 
-        CommandExecutor shellExecutor = CommandExecutor(parsedInput);
-
+        if (parsedInput.size() == 0){
+        }
         try
         {
-            shellExecutor.execute_command();
+            shellExecutor.execute_command(parsedInput);
         }
         catch(const ShellException& e)
         {

@@ -17,28 +17,35 @@ class CommandExecutor{
 private: 
 // Attributes 
     vector<const char*> cStringArrParsedUserInput; // execvp expects an array of C-style strings. 
-    int exitStatus; 
+    int exitStatus;
 
-public: 
-    // Constructor 
-     /**  
-     * @brief Default constructor for CommandExecutor class.
+    /**  
+     * @brief Converts a vector of stirngs to a vector of C-Style strings. 
      * 
      * @param parsedUserInput vector of strings representing parsed user input 
      * 
-     * @note function does not return anything. 
+     * @note method does not return anything. 
      */
-    CommandExecutor(vector<string>& parsedUserInput);
+    void covert_to_C_string_arr(vector<string>& parsedUserInput);
 
 
+    /**  
+     * @brief Handles exit command and will exit program 
+     * 
+     * @note method takes no input parameters and does not return anything. 
+     */
+    void handle_exit_command();
+
+
+public: 
      /**  
      * @brief Executes command in a child process. Will throw shellExecption in error. 
      * 
-     * @note Takes no parameters. 
+     * @param parsedUserInput vector of strings representing parsed user input 
      * 
      * @return int value indicating outcome. 
      */
-    int execute_command();
+    int execute_command(vector<string>& parsedUserInput);
 
     
 };

@@ -29,6 +29,7 @@ private:
     vector<string> parsedInput;
     UserInterface shellUserInterface; 
     Util shellUtilityObject;
+    CommandExecutor shellExecutor;
 
     // Private class methods 
     /** 
