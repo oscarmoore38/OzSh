@@ -5,7 +5,7 @@
 #include "../userInterfaceClass/userInterface.hpp"
 #include <string>
 #include <vector>
-#include "../CommandExecutorClass/commandExecutor.hpp/"
+#include "../CommandExecutorClass/commandExecutor.hpp"
 // #include "CommandParser.h"
 // #include "CommandExecutor.h"
 // #include "ProcessManager.h"

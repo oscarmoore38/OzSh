@@ -1,7 +1,8 @@
 #include "shell.hpp"
 #include "../utilClass/util.hpp"
 #include "../shellExceptionClass/shellException.hpp"
-#include "../CommandExecutorClass/commandExecutor.hpp/"
+#include "../CommandExecutorClass/commandExecutor.hpp"
+#include "../signalHandlerClass/signalHandler.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -41,6 +42,9 @@ vector<string> Shell:: parse_input(const string& UserInputString) {
 }
 
 void Shell:: run(int argumentCount, char* argumentValue[]){
+    SignalHandler::registerSignalHandlers();
+    cout << "Running application. Press Ctrl+C to exit." << endl; 
+
     // Check valid args
     try {
         is_valid_input(argumentCount, argumentValue);
@@ -66,7 +70,11 @@ void Shell:: run(int argumentCount, char* argumentValue[]){
         catch(const ShellException& e)
         {
             cerr << e.what() << endl;
-            exit(1);
+        }
+
+        // Update prompt if cd called 
+        if(parsedInput[0] == "cd"){
+            shellUserInterface.setPromptEnv();
         }
         
     }
