@@ -43,7 +43,7 @@ public:
      * @note This method takes no input parameters
      */
 
-    void setPromptEnv();
+    void setPrompt();
 
 };
 

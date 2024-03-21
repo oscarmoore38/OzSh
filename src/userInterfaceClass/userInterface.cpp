@@ -9,7 +9,7 @@ using namespace std;
 
 UserInterface:: UserInterface(){
     // Check PS1 value and username and set if needed. 
-    setPromptEnv();
+    setPrompt();
 }
 
 void UserInterface:: printPrompt(){
@@ -17,7 +17,7 @@ void UserInterface:: printPrompt(){
 }
 
 
-void UserInterface:: setPromptEnv(){
+void UserInterface:: setPrompt(){
     // Get prompt 
     if (getuid() == 0){
         prompt = " # ";
