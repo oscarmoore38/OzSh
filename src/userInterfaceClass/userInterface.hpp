@@ -14,7 +14,6 @@ using namespace std;
 
 class UserInterface{
 private: 
-    char* envVarPS1;
     char cwd[1024]; 
     char hostname[256];
     string prompt;
@@ -22,8 +21,8 @@ public:
     // class method 
     // Constructor 
      /**  
-     * @brief Default constructor for Shell class. Will call setter, 
-     * setPromptEnv if private attribute envVarPS1 is not set. 
+     * @brief Default constructor for Shell class. Calls setter method
+     * setPrompt() to create prompt values. 
      * 
      * @note This constructor takes no input parameters.
      */
@@ -38,7 +37,7 @@ public:
     void printPrompt();
 
     /** 
-     * @brief Setter for private attribute ennVarPS1 
+     * @brief Setter for private attributes cwd, hostname, prompt.  
      *
      * @note This method takes no input parameters
      */

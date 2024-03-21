@@ -74,7 +74,7 @@ void Shell:: run(int argumentCount, char* argumentValue[]){
 
         // Update prompt if cd called 
         if(parsedInput[0] == "cd"){
-            shellUserInterface.setPromptEnv();
+            shellUserInterface.setPrompt();
         }
         
     }

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "../userInterfaceClass/userInterface.hpp"
 // Note to include ProcessMaanager class when implemented
 
 using namespace std; 
@@ -18,6 +19,7 @@ private:
 // Attributes 
     vector<const char*> cStringArrParsedUserInput; // execvp expects an array of C-style strings. 
     int exitStatus;
+
 
     /**  
      * @brief Converts a vector of stirngs to a vector of C-Style strings. 

@@ -28,41 +28,54 @@ void CommandExecutor::handle_exit_command() {
 
 
 int CommandExecutor:: execute_command(vector<string>& parsedUserInput){
+    // clear vector from previous call. 
+    cStringArrParsedUserInput.clear();
+
+    // Convert C++ strings to C-Style strings. 
     covert_to_C_string_arr(parsedUserInput);
 
-    // Handle built-in commands 
-    if (parsedUserInput[0] == "cd") {
+    // FOR TESTING - WILL REMOVE 
+    for (const char* cString : cStringArrParsedUserInput) {
+        // Check if the current element is nullptr
+        if (cString == nullptr) {
+            // If it is, break out of the loop
+            break;
+        }
+        // Print the C-style string
+        std::cout << cString << std::endl;
+    }
+    
+    // Handle built-in commands
+    if (parsedUserInput[0] == "cd") { 
         if (parsedUserInput.size() != 2) {
             throw ShellException("Usage: cd <directory>");
-        }else{
-            // Attempt to change dir 
+        }else{ // Attempt to change dir 
            if (chdir(cStringArrParsedUserInput[1]) != 0) {
                 throw ShellException("Error: Failed to change directory.");
             }
         } 
     } else if (parsedUserInput[0] == "exit") {
         handle_exit_command(); 
-    }
+    } else { // Spawn new child process for everything else. 
+        pid_t pid = fork(); 
 
-    // Spawn new child process for everything else. 
-    pid_t pid = fork(); 
+        if (pid < 0) {
+            throw ShellException("Error: Fork failed.");
+        } else if (pid == 0) {
+            execvp(cStringArrParsedUserInput[0], const_cast<char* const*>(cStringArrParsedUserInput.data()));
 
-    if (pid < 0) {
-        throw ShellException("Error: Fork failed.");
-    } else if (pid == 0) {
-        execvp(cStringArrParsedUserInput[0], const_cast<char* const*>(cStringArrParsedUserInput.data()));
-
-        // Error handling for execvp
-        throw ShellException("Error: Exec failed.");
-        
-    } else {
-        // Wait for the child process to finish
-        waitpid(pid, &exitStatus, 0); 
-        if (WIFEXITED(exitStatus)) {
-            cout << "Child process exited with status: " << WEXITSTATUS(exitStatus) << endl;
+            // Error handling for execvp
+            throw ShellException("Error: Exec failed.");
+            
         } else {
-            throw ShellException("Error: Child process exited abnormally.");
+            // Wait for the child process to finish
+            waitpid(pid, &exitStatus, 0); 
+            if (WIFEXITED(exitStatus)) {
+                cout << "Child process exited with status: " << WEXITSTATUS(exitStatus) << endl;
+            } else {
+                throw ShellException("Error: Child process exited abnormally.");
+            }
         }
-        return 0;
     }
+    return 0;
 };
