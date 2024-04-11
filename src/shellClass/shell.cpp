@@ -58,25 +58,23 @@ void Shell:: run(int argumentCount, char* argumentValue[]){
         shellUserInterface.printPrompt();
 
         // Read and parse user input. 
-        parsedInput = parse_input(read_line(cin));
+        parsedInput = parse_input(read_line(cin)); 
 
-        // Try to execute command 
-        if (parsedInput.size() == 0){
+        // Try to execute command if input provided.  
+        if (parsedInput.size() != 0){
+            try
+            {
+                shellExecutor.execute_command(parsedInput);
+            }
+            catch(const ShellException& e)
+            {
+                cerr << e.what() << endl;
+            }
+            // Update prompt if cd called 
+            if(parsedInput[0] == "cd"){
+                shellUserInterface.setPrompt();
+            }
         }
-        try
-        {
-            shellExecutor.execute_command(parsedInput);
-        }
-        catch(const ShellException& e)
-        {
-            cerr << e.what() << endl;
-        }
-
-        // Update prompt if cd called 
-        if(parsedInput[0] == "cd"){
-            shellUserInterface.setPrompt();
-        }
-        
     }
     return;
 }
